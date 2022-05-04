@@ -1,0 +1,50 @@
+# spring.application.name : Application Name ?? (front-end? ??)
+# spring.datasource : ?? DB ??
+# spring.mvc.hiddenmethod.filter.enabled : MVC ????? Hidden Method ?? ?? ?? (Form ? ?? PUT, DELETE ????? ? ? ???)
+spring:
+  application:
+    name: back-emd
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://34.125.237.14:3306/mysql?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+# mybatis ?? (mybatis-config.xml ?? ???? ?? ??)
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - /mapper/**/*.xml
+
+# server.port : 8080 ?? ??
+# server.servlet.encoding : Embedded Tomcat? ??? ??
+# server.shutdown
+#  : Spring Boot 2.3 ?? ???? ???? ??
+#  : ????? ??? ? ??? ????? ?? ??? 30?. ?? ???? ??? spring.lifecycle.timeout-per-shutdown-phase=1m ?? ?? ??
+server:
+  port: 8081
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  shutdown: graceful
+
+# management.endpoints.web.exposure.include : Actuator Open URI ??. ???? "health,info" ??
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
