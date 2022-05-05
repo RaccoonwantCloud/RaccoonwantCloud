@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.datasolution.msa.userback.user.mapper.UserMapper">
+    <select id="findAll" resultType="kr.datasolution.msa.userback.user.dto.UserDto">
+        SELECT ID
+             , NM
+          FROM USER
+         ORDER BY ID DESC
+    </select>
+
+    <select id="findById" parameterType="int" resultType="kr.datasolution.msa.userback.user.dto.UserDto">
+        SELECT ID
+             , NM
+          FROM USER
+         WHERE ID = #{id}
+    </select>
+
+    <insert id="save" parameterType="kr.datasolution.msa.userback.user.dto.UserDto"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT
+          INTO USER (ID,NM)
+        VALUES (#{id}, #{NM})
+    </insert>
+</mapper>
