@@ -14,6 +14,6 @@ public class MainController {
      */
     @GetMapping("")
     public String getViewMain() {
-        return "redirect:/baard";
+        return "redirect:/boord";
     }
 }
