@@ -106,15 +106,15 @@ public class BoardService{
         log.info("BOARD UPDATE COUNT : {}", count);
     }
 
-    public Void modBoard2(int id, BoardDto boardDto){
-        boardMapper.findById(id);
+    public Void modBoard2(BoardDto boardDto){
         return webClient.put()
-                .uri("/"+id)
-                .body(Mono.just(boardDto), PostMapping.class)
+                .uri("/"+boardDto.getId()+"/edit")
+                .body(Mono.just(boardDto), BoardDto.class)
                 .retrieve()
                 .bodyToMono(Void.class)
                 .block();
     }
+
 
     /**
      * 게시물 삭제 처리
