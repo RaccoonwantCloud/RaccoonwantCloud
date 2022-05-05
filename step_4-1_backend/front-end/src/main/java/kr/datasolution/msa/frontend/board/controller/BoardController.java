@@ -14,7 +14,7 @@ import java.util.List;
  * 게시물 관련 처리 Controller Layer
  */
 @RestController
-@RequestMapping("/baard")
+@RequestMapping("/boord")
 @RequiredArgsConstructor
 public class BoardController {
 
