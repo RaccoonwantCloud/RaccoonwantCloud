@@ -100,7 +100,7 @@ public class BoardController {
      @ModelAttribute BoardDto boardDto,
      ModelMap map) {
      boardDto.setId(id);
-     boardService.modBoard(boardDto);
+     boardService.modBoard2(boardDto);
 
      return "redirect:/board/" + id;
      }
