@@ -31,9 +31,9 @@ spring:
 
         - id: back-emd2
           #uri : http://localhost:8002
-          uri: lb://BACK-EMD2
+          uri: lb://BACK-EMD
           predicates:
-            - Path=/baard/**
+            - Path=/boord/**
           filters:
             - AddRequestHeader=second-request, second-request-header2
             - AddResponseHeader=second-response, second-response-header2
